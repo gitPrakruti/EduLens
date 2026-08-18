@@ -9,6 +9,10 @@ from app.config import get_settings
 from app.db import create_indexes
 from app.routers import auth, datasets, filters, notes
 
+settings = get_settings()
+
+print("MONGO DEBUG USER:", settings.mongodb_uri.split("://", 1)[1].split(":", 1)[0])
+print("MONGO DEBUG HOST:", settings.mongodb_uri.split("@", 1)[1].split("/", 1)[0])
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
