@@ -1,4 +1,4 @@
-const BASE_URL = (import.meta.env['VITE_API_URL'] as string | undefined) ?? "http://localhost:8000/api";
+const BASE_URL = (import.meta.env['VITE_API_URL'] as string | undefined) ?? "https://smart-filter-xdnf.onrender.com";
 
 const TOKEN_KEY = "smartfilter-token";
 
