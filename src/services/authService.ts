@@ -14,7 +14,7 @@ type AuthResponse = { token: string; user: User };
 
 export const authService = {
   async signup(input: { name: string; email: string; password: string; role: Role }) {
-    const data = await apiRequest<AuthResponse>("/api/signup", {
+    const data = await apiRequest<AuthResponse>("/api/auth/signup", {
       method: "POST",
       body: input,
       auth: false,
@@ -24,7 +24,7 @@ export const authService = {
   },
 
   async login(input: { email: string; password: string }) {
-    const data = await apiRequest<AuthResponse>("/api/login", {
+    const data = await apiRequest<AuthResponse>("/api/auth/login", {
       method: "POST",
       body: input,
       auth: false,
@@ -33,7 +33,7 @@ export const authService = {
     return data.user;
   },
 
-  me: () => apiRequest<User>("/api/me"),
+  me: () => apiRequest<User>("/api/auth/me"),
 
   logout: () => tokenStore.clear(),
 };
